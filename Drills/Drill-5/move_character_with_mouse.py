@@ -6,12 +6,17 @@ KPU_WIDTH, KPU_HEIGHT = 1280, 1024
 def move(move_x,move_y):
     global x,y
     global i
+    global  animation_line
     if i<= 100:
         t = i / 100
         x = (1 - t) * x + t * move_x
         y = (1 - t) * y + t * move_y
         i+=1
-        print(x,y,i,move_x,move_y)
+    else:
+        if animation_line == 1:
+            animation_line = 3
+        elif animation_line == 0:
+            animation_line =2
 
 def handle_events():
     global running
