@@ -61,7 +61,7 @@ while running:
     clear_canvas()
     kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
     character.clip_draw(frame * 100, 100 * animation_line, 100, 100, x, y)
-    mouse_pointer.clip_draw(0,0,52,52,mouse_x,mouse_y)
+    mouse_pointer.clip_draw(0,0,52,52,mouse_x+26,mouse_y-26)
     move(move_x,move_y)
     update_canvas()
     frame = (frame + 1) % 8
