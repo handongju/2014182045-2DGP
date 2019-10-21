@@ -40,7 +40,7 @@ class IdleState:
     def do(boy):
         IdleState.frame_speed += 1
 
-        if IdleState.frame_speed > 30:
+        if IdleState.frame_speed > 8:
             boy.frame = (boy.frame + 1) % 8
             IdleState.frame_speed = 0
 
@@ -79,7 +79,7 @@ class RunState:
     def do(boy):
         RunState.frame_speed += 1
 
-        if RunState.frame_speed > 30:
+        if RunState.frame_speed > 5:
             boy.frame = (boy.frame + 1) % 8
             RunState.frame_speed = 0
         boy.timer -= 1
@@ -98,7 +98,7 @@ class DashState:
 
     @staticmethod
     def enter(boy, event):
-        boy.timer = 300
+        boy.timer = 100
 
     @staticmethod
     def exit(boy, event):
@@ -106,13 +106,13 @@ class DashState:
 
     @staticmethod
     def do(boy):
-        RunState.frame_speed += 1
+        DashState.frame_speed += 1
 
-        if RunState.frame_speed > 10:
+        if DashState.frame_speed > 3:
             boy.frame = (boy.frame + 1) % 8
-            RunState.frame_speed = 0
+            DashState.frame_speed = 0
         boy.timer -= 1
-        boy.x += boy.velocity * 1.3
+        boy.x += boy.velocity * 2.5
         boy.x = clamp(25, boy.x, 800 - 25)
         if boy.timer == 0:
             boy.add_event(LSHIFT_UP)
@@ -137,7 +137,7 @@ class SleepState:
     @staticmethod
     def do(boy):
         SleepState.frame_speed+=1
-        if SleepState.frame_speed > 100:
+        if SleepState.frame_speed > 5:
             boy.frame = (boy.frame + 1) % 8
             SleepState.frame_speed = 0
     @staticmethod

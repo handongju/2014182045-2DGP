@@ -10,7 +10,9 @@ import game_framework
 from boy import Boy
 from grass import Grass
 
-
+##
+from time import sleep
+##
 
 name = "MainState"
 
@@ -55,6 +57,8 @@ def handle_events():
 
 def update():
     boy.update()
+    sleep(0.005)
+
 
 def draw():
     clear_canvas()
